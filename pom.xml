@@ -28,7 +28,7 @@
 					<!-- MainClass in mainfest make a executable jar -->
 					<archive>
 					  <manifest>
-						<mainClass>org.fogbeam.example.opennpl.TokenizerMain</mainClass>
+						<mainClass>org.fogbeam.example.opennlp.TokenizerMain</mainClass>
 					  </manifest>
 					</archive>
 
