@@ -57,7 +57,7 @@ public class TokenizerMain
 				{
 				}
 			}
-		}*/
+		}
 		System.out.println( "\n-----\ndone" );
 	}
 }
