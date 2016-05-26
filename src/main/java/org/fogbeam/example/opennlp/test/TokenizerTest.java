@@ -11,6 +11,7 @@ import junit.framework.TestCase;
 import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
+import org.junit.Test;
 
 public class TokenizerTest extends TestCase {
 	private String numeroFicheros = "2";
@@ -20,6 +21,7 @@ public class TokenizerTest extends TestCase {
 	private String comandoEntradaTest = numeroFicheros + " " + fichero1 + " " + fichero2 + " " + modelo;
 	private String[] args = comandoEntradaTest.split(" ");
 
+	@Test
 	public void testParametrosEntradaNumeroFicheros() {
 
 		int salida = TokenizerExtensionMain.getNumeroFicheros(args);
@@ -27,6 +29,7 @@ public class TokenizerTest extends TestCase {
 
 	}
 
+	@Test
 	public void testParametrosEntradaFicheros() {
 
 		String[] salida = TokenizerExtensionMain.getFileDefinition(args, Integer.parseInt(numeroFicheros));
@@ -39,6 +42,7 @@ public class TokenizerTest extends TestCase {
 
 	}
 
+	@Test
 	public void testParametrosEntradaTokens() {
 		String[] tokensEsperados = {
 				

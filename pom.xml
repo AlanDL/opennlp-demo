@@ -15,6 +15,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
@@ -58,45 +59,6 @@
 			          <target>1.8</target>
 			        </configuration>
 			</plugin>
-			 <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.11</version>
-                <configuration>
-                   
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>unit-tests</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                        <configuration>
-                            <skip>false</skip>
-                            <includes>
-                                <include>**/When*.java</include>
-                                <include>src/main/java/org/fogbeam/example/opennlp/test/*Test.java</include>
-                            </includes>
-                            <excludes>
-                                <exclude>%regex[.*integration.*]</exclude>
-                            </excludes>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>integration-tests</id>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                        <configuration>
-                            <skip>false</skip>
-                            <includes>
-                                <include>%regex[.*integration.*]</include>
-                            </includes>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
 
 		</plugins>
 	</build>
