@@ -75,7 +75,7 @@
                             <skip>false</skip>
                             <includes>
                                 <include>**/When*.java</include>
-                                <include>**/*Test.java</include>
+                                <include>src/main/java/org/fogbeam/example/opennlp/test/*Test.java</include>
                             </includes>
                             <excludes>
                                 <exclude>%regex[.*integration.*]</exclude>
