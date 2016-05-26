@@ -21,7 +21,7 @@ import opennlp.tools.tokenize.TokenizerModel;
 public class TokenizerExtensionMain {
 
 	private final static int INDICE_DEFINICION_NUMERO_FICHEROS = 0;
-
+	
 	/**
 	 * 
 	 * @param args
@@ -59,7 +59,7 @@ public class TokenizerExtensionMain {
 	 * @param args parámetros de entrada
 	 * @return número de ficheros
 	 */
-	private static int getNumeroFicheros(String[] args) {
+	public static int getNumeroFicheros(String[] args) {
 		return Integer.parseInt(args[INDICE_DEFINICION_NUMERO_FICHEROS]);
 	}
 	
@@ -70,24 +70,33 @@ public class TokenizerExtensionMain {
 	 * @param numeroFicheros
 	 * @return conjunto de definiciones de fichero
 	 */
-	private static String[] getFileDefinition(String[] args, int numeroFicheros) {
+	public static String[] getFileDefinition(String[] args, int numeroFicheros) {
 		int from = INDICE_DEFINICION_NUMERO_FICHEROS + 1;
 		int to = from + numeroFicheros;
 		return Arrays.copyOfRange(args, from, to);
 	}
 	
 	/**
-	 * Muestra los tokens para cada fichero
+	 * Muestra los tokens de todos los ficheros
 	 * @param filesDefinition definiciones de los problemas
 	 * @param tokenizer
 	 */
-	private static void recorrerFicheros(String[] filesDefinition, Tokenizer tokenizer) {
+	public static void recorrerFicheros(String[] filesDefinition, Tokenizer tokenizer) {
 		for(int i = 0; i < filesDefinition.length; i++) {
-			String[] tokens = tokenizer.tokenize(FacadeReader.readAllBytes(filesDefinition[i]));
+			String[] tokens = getTokens(filesDefinition[i], tokenizer);
 			System.out.println(filesDefinition[i]);
 			for(String token : tokens)
 				System.out.println(token);
 		}
+	}
+	
+	/**
+	 * Proporciona los tokens del fichero
+	 * @param filesDefinition definiciones de los problemas
+	 * @param tokenizer
+	 */
+	public static String[] getTokens(String filesDefinition, Tokenizer tokenizer) {
+		return tokenizer.tokenize(FacadeReader.readAllBytes(filesDefinition));
 	}
 
 }
